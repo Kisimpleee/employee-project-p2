@@ -25,7 +25,7 @@ select max(salary)
 from employees
 
 --COUNT THE TOTAL EMPLOYEES
-select count(employee_id) from employees
+select count(*)as total_employees from employees
 
 --SECTION C
 --Show employee names with their department names
@@ -58,7 +58,7 @@ GROUP BY department_name
 --Show employee names and classify salaries:
 salary>5000 = high
 salary between 4000 and 4999=medium
-below 4000= low
+else low
 
 select * from employees
 select * from departments
@@ -67,7 +67,7 @@ select (first_name||' '||last_name) as full_name,
 		salary,
 		CASE WHEN salary > 5000 THEN 'High'
 			WHEN salary between 4000 and 4999 THEN 'Medium'
-			WHEN salary < 4000 THEN 'Low'
+			else 'Low'
 		End as salary_catg
 from employees;
 
